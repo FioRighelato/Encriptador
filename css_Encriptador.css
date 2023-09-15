@@ -1,0 +1,149 @@
+/* Estilo para el body */
+body{
+    font-family: Inter;
+    background-color: #fff4e1;
+    padding: 20px;
+    margin: 0px;
+}
+
+#LogoALura{
+    width: 2.5%;
+}
+
+section{
+    padding: 20px;
+    background-color: none;
+    height:fit-content;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-column,.right-column {
+    flex: 1;
+    padding: 20px;
+}
+
+
+/* Estilo para el encabezado h1 */
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilo para los botones */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.texto-botones{
+    font-family: Inter;
+    font-size: 15px;
+    align-items: center;
+}
+
+#signoExc{
+    width: 3%;
+    margin-right: 5px;
+}
+
+button {
+    font-family: Inter;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: center;
+    padding: 8px;
+    padding-top: 10px;
+    width: 240px; /* Ancho fijo para ambos botones */
+    flex: 1;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.btnEncriptar{
+    background-color: #997A59;
+    border: 1px solid #997A59;
+    color: #FFF4E1;
+    margin-left: 2.5cm;
+    
+}
+
+.btnDesencriptar{
+    background-color: #FFB68D;
+    border: 1px solid #997A59;
+    color: #552c15;
+    margin-left: 1cm;
+}
+
+.btnCopiar{
+    padding: 0px;
+    width: 55px;
+    display: flex;
+    align-items: center;
+    background-color: #fff4e1;
+    border: none;
+    margin-top: 0.5cm;
+}
+
+.btnCambiarLugar{
+    padding: 0px;
+    width: 55px;
+    display: flex;
+    align-items: center;
+    background-color: #fff4e1;
+    border: none;
+    margin-top: 5cm;
+}
+
+/* Estilo para el campo de entrada de texto */
+input[type="text"] {
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 200px;
+    width: 300px;
+    border: none;
+    background-color: #fff4e1;
+}
+
+/* Estilo para el área de salida */
+#output {
+    font-family: Inter;
+    border: 1px solid #dfcfb3bd;
+    width: 90%;
+    height: 600px;
+    padding: 0px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center; /* Centra horizontalmente el contenido dentro del contenedor */
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    margin: 0px;
+    justify-content: center;
+}
+#noResultImage{
+    max-width:9cm;
+    height: auto;
+    margin-right: 0 auto;
+    display: block;
+}
+.textoImagen{
+    font-family: Inter;
+    font-size: 20px;
+    font-weight:200;
+    color: #4A3F3C;
+}
+/* Estilo para el pie de página */
+footer {
+    border-top: 1px solid #dfcfb3bd;
+    font-size: 14px;
+    color: #4A3F3C;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap">
+    <link rel="stylesheet" type="text/css" href="css_Encriptador.css">
+</head>
+<body>
+    <header>
+        <img id="LogoALura" src="imagenes/aluraIconover1.png" alt="Logo de Alura ">
+    </header>
+    <section class="container">
+        <section class="columna-izq">
+            <!-- Contenido del encriptador -->
+            <input type="text" id="inputText" placeholder="Introduce el texto">
+            <p class="texto-botones"><img id="signoExc" src="imagenes/icons8-atención-30.png" alt="Signo de exclamación">Solo letras minúsculas y sin acentos</p>
+            <button class="btnEncriptar">Encriptar</button>
+            <button class="btnDesencriptar">Desencriptar</button>
+        </section>
+        <section class="columna-centro">
+            <button class="btnCambiarLugar"><img src="imagenes/icons8-flecha-direccional-horizontal-48.png" alt="Intercambiar textos"></button>
+            <button class="btnCopiar" onclick="copiarTexto()"><img src="imagenes/icons8-copiar-48.png" alt="Copiar texto de salida"></button>
+        </section>
+        <section class="right-column">
+            <!-- Contenido de la salida de texto -->
+            <section id="output" style="text-align: center;">
+                <p id="textoImagen"><img id="noResultImage" src="imagenes/astronauta.png" alt="No hay resultados"><br>Wow, cuánto vacío...<br>No hemos podido encontrar texto alguno</p>
+            </section>
+        </section>
+    </section>
+
+    <footer>
+        <p>Desarrollado por: Righelato Fiorella</p>
+        <p>Contacto: r.fiorella468@gmail.com</p>
+    </footer>
+
+    <script>
+        // Funciones JavaScript
+        document.querySelector('.btnEncriptar').addEventListener('click', function() {
+            procesarTexto('encrypt');
+        });
+
+        document.querySelector('.btnDesencriptar').addEventListener('click', function() {
+            procesarTexto('decrypt');
+        });
+
+        document.querySelector('.btnCambiarLugar').addEventListener('click', function() {
+            cambiarLugarTexto();
+        });
+
+        // Función principal para procesar el texto
+        function procesarTexto(action) {
+            const textoImagen = document.getElementById('textoImagen');
+            const inputText = document.getElementById('inputText').value;
+            const output = document.getElementById('output');
+            const noResultImage = document.getElementById('noResultImage');
+
+            if (!inputText.trim()) {
+                // Mostrar la imagen si no se ha ingresado ningún texto
+                textoImagen.style.display = 'block';
+                output.textContent = ''; // Borra cualquier texto en el cuadro de resultado
+            } else {
+                // Ocultar la imagen si hay texto
+                textoImagen.style.display = 'none';
+
+                if (action === 'encrypt') {
+                    const encryptedText = encriptar(inputText);
+                    output.textContent = encryptedText;
+                } else if (action === 'decrypt') {
+                    const decryptedText = desencriptar(inputText);
+                    output.textContent = decryptedText;
+                }
+            }
+        }
+
+        // Función para encriptar el texto
+        function encriptar(texto) {
+            return texto
+                .replace(/e/g, 'enter')
+                .replace(/i/g, 'imes')
+                .replace(/a/g, 'ai')
+                .replace(/o/g, 'ober')
+                .replace(/u/g, 'ufat');
+        }
+
+        // Función para desencriptar el texto
+        function desencriptar(texto) {
+            return texto
+                .replace(/enter/g, 'e')
+                .replace(/imes/g, 'i')
+                .replace(/ai/g, 'a')
+                .replace(/ober/g, 'o')
+                .replace(/ufat/g, 'u');
+        }
+
+        function cambiarLugarTexto() {
+            const inputText = document.getElementById('inputText');
+            const output = document.getElementById('output');
+            const noResultImage = document.getElementById('noResultImage');
+
+            // Intercambia el contenido de inputText y output
+            const tempText = inputText.value;
+            inputText.value = output.textContent;
+            output.textContent = tempText;
+
+            // Oculta la imagen si no hay resultados en el cuadro de salida
+            if (!output.textContent.trim()) {
+                noResultImage.style.display = 'block';
+            } else {
+                noResultImage.style.display = 'none';
+            }
+        }
+
+        function copiarTexto() {
+            const output = document.getElementById('output');
+            const textoCopiado = output.textContent;
+            
+            // Crear un elemento de texto temporal y copiar el texto
+            const tempTextarea = document.createElement('textarea');
+            tempTextarea.value = textoCopiado;
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextarea);
+
+            // Puedes mostrar una notificación o realizar cualquier otra acción aquí
+            alert('Texto copiado al portapapeles: ' + textoCopiado);
+        }
+    </script>
+</body>
+</html>
